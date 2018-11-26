@@ -2,15 +2,24 @@
 # get
 # set
 # delete
+# property的四个参数的顺序是固定的
+# 第一个参数代表读取的时候需要调用的函数
+# 第二个参数代表写入的时候需要调用的函数
+# 第三个是参数
+# 第四个是需要设置的值
+
 # class Persion():
-#   def get(self):
+#    def get(self):
 #        return self.name
-#
-#    def set(self, name):
-#        self.name = name
-#
+
+#   def set(self, name):
+#       self.name = name
+
 #   def delete(self):
-#       self.name = None
+#        self.name = None
+
+#    name2 = property(set, get, delete, "电视剧方")
+
 # p = Persion()
 # p.set("htyu")
 # print(p.get())
@@ -82,3 +91,33 @@
 #   -不需要实例化，通过类直接访问
 # -类方法
 #   -不需要实例化，实例化对象也可以调用
+
+
+# 抽象
+# 抽象方法：没有实现的方法，在python中体现为方法定义内容为pass
+# 抽象类：包含抽象方法的类叫做抽象类，
+# 抽象类的使用：
+#   -抽象类可以包含抽象方法，也可以包含具体方法
+#   -抽象类中可以有方法也可以有属性
+#   -抽象类不允许直接实例化
+#   -必须继承才能使用，用继承的子类必须实现所有继承来的抽象方法
+#   -抽象类的主要作用是设定类的标准，以便于开发的时候具有统一的规范
+# class Animal():
+#     def sayHello(self):
+#         pass
+#
+#
+# class Dog(Animal):
+#     def sayHello(self):
+#         print("hahahah")
+#
+#
+# class People(Animal):
+#     def sayHello(self):
+#         print("哈哈哈出来啦")
+#
+#
+# d = Dog()
+# d.sayHello()
+# p = People()
+# p.sayHello()
