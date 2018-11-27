@@ -121,3 +121,48 @@
 # d.sayHello()
 # p = People()
 # p.sayHello()
+
+# 自定义类
+# 类其实是一个类定义和各种方法的自由组合
+# 可以定义类和函数，然后自己通过类直接赋值
+# 可以借助MethodType实现
+# 借助于type实现
+# 使用元类实现-MetaClass
+#   - 元类是类
+
+# 利用MethodType实现方法绑定
+# from types import MethodType
+# class A():
+#     pass
+# def say(self):
+#     print("say")
+# a = A()
+# a.say = MethodType(say,A)
+# a.say()
+
+
+# 利用type制造一个类
+# 先定义应该具有的成员函数
+# def say(self):
+#     print("say")
+# def talk(self):
+#     print("talk")
+# 利用type来创建一个类
+# A = type("Aname", (object,), {"class_say": say, "class_talk": talk})
+# a = A()
+# dir(a)
+
+
+# 利用元类创造类
+# 元类的写法是固定的，他必须继承自type,元类命名以MetaClass结尾
+class AMetaClass(type):
+    def __new__(cls, *args, **kwargs):
+        args["id"]="asasa"
+        args["addr"]="jjd"
+        return type.__new__(cls,*args, **kwargs)
+
+
+class Teacher(object, metaclass=AMetaClass):
+    pass
+t = Teacher()
+
