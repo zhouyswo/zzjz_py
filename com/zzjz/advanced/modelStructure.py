@@ -66,3 +66,15 @@
 
 # 导入包中具体模块
 # import pag_name.model_name
+# import pag_name.model_name as 别名
+# from pachage import model1,model2..
+# from package import *
+# from  pag_name.model_name import *
+
+
+# __all__的用法
+# from package import * ，*表示可以导入的内容
+#  __init__.py 中如果文件为空，或者没有 __all__，那么只可以把__init__中的内容导入
+# __init__ 如果设置了__all__，那么则按照__all__指定的子包或者模块进行导入，如果这样则不会导入__init__中的内容
+#__all__=['model1','model2',"package1","package2"....]
+
