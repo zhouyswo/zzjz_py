@@ -89,8 +89,7 @@
 # datetime 模块
 # datetime 提供日期和时间的运算和表示
 # datetime.date 一个理想的日期，提供year,month，day属性
-# import datetime
-
+import datetime
 # dt = datetime.date(2018, 5, 31)
 # print(dt.day)
 # print(dt.month)
@@ -111,3 +110,44 @@
 # td = timedelta(hours=1)
 # 当前时间加1小时输出
 # print((t1 + td).strftime("%Y-%m-%d %H:%M:%S"))
+
+
+# timeit 时间测量工具
+import timeit
+# 利用timeit调用代码，执行1000次，
+# t1 = timeit.timeit(stmt="[i for i in range(1000)]",number=1000)
+# print(t1)
+
+# def do():
+#     print("o")
+# t2 = timeit.timeit(stmt=do,number=10)
+# print(t2)
+
+
+# setup负责把环境准备好
+# s='''
+#     def do(i):
+#         print(i)
+# '''
+#
+# t2 = timeit.timeit("do(i)",setup=s+"i=9",number=10)
+# print(t2)
+
+# *************************************os 模块*****************************************************
+# os 操作系统相关
+# 主要是文件操作，主要包含在3个模块里:
+#  os 操作系统目录相关
+#  os.path 系统路径相关操作
+#  shutil 高级文件操作，目录树的操作，文件赋值、删除、移动
+# 路径：绝对路径-总是从根目录上开始
+#       相对路径-基本以当前环境开始的一个相对的路径
+
+import os
+# getcwd() 获取当前的工作目录
+# print(os.getcwd())
+
+# chdir改变当前的工作目录，格式 chdir(路径)，无返回值
+
+# listdir 获取一个目录中所有子目录和文件的名称列表，格式listdir(路径)
+
+
