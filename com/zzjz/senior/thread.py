@@ -35,6 +35,7 @@ import time
 # 守护线程 daemon
 #
 import threading
+
 #
 # def fc1():
 #     time.sleep(3)
@@ -63,3 +64,20 @@ import threading
 #
 # t = NyThread()
 # t.start()
+
+
+# 共享变量：锁，信号灯
+# 锁  是一个标准，表示一个线程在占用一些资源
+# 那个资源需要多个线程共享，就锁那个
+# 锁其实不是锁住谁，而是一个令牌
+
+# 线程安全问题
+# 如果一个资源/变量，他对于多线程来讲，不用加锁也不会引起任何问题，则称为线程安全
+# 线程不安全的变量类型：list,set,dist
+# 线程安全变量类型：queue
+
+
+
+lock = threading.Lock
+def myadd():
+    print()
