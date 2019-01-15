@@ -77,7 +77,32 @@ import threading
 # 线程安全变量类型：queue
 
 
+lock = threading.Lock()
 
-lock = threading.Lock
+
 def myadd():
     print()
+
+# 死锁
+# 申请锁的顺序和释放锁的顺序相反
+
+# semphore
+# 允许一个资源最多由几个多线程同事使用
+
+
+# 可重入锁  RLock
+# 一个锁，可以被一个线程多次申请
+# 主要解决递归调用的时候需要申请锁的情况
+
+
+# subprocess
+# 完全跳过线程，使用进程
+# 是派生进程的主要替代方案
+
+# multiprocessiong
+# 使用threading接口派生，使用子进程
+# 允许为多核或者多CPU派生进程、接口跟threading非常相似
+
+# concurrent.futhres
+# 新的异步执行模块
+# 任务级别的操作
