@@ -31,7 +31,6 @@ l = [x * x for x in range(6)]
 # 放在小括号中就是生成器
 g = (x * x for x in range(6))
 
-
 # 定义生成器
 # 如果包含yield，则这个函数就叫做生成器
 # next调用函数，遇到yield返回
@@ -113,14 +112,53 @@ g = (x * x for x in range(6))
 # -子生成器把产出的值发给调用方
 # -子生成器在最后，解释器会抛出StopIteration异常，并且把返回值附加到异常对象上
 
-def gen():
-    for c in "ab":
-        yield c
+# def gen():
+#     for c in "ab":
+#         yield c
+#
+#
+# def gen_new():
+#     yield from "cd"
+#
+#
+# print(list(gen()))
+# print(list(gen_new()))
+
+# asyncio
+# 使用方式如下
+import asyncio
+
+# 使用协程
+# @asyncio.coroutine
+# def aaa():
+#     print("sds")
+#     yield from asyncio.sleep(10)
+#     print("ius")
+#
+#
+# # 启动消息循环
+# loop = asyncio.get_event_loop()
+# # 定义任务
+# tasks = [aaa(), aaa()]
+# # asyncio使用wait等待task执行完毕
+# loop.run_until_complete(asyncio.wait(tasks))
+# # 关闭消息循环
+# loop.close()
+
+# aiohttp
+# asyncio实现单线程的并发，在客户端用处不大
+# 在服务器端可以asyncio+coroutine配合，因为http是io操作
+# asyncio实现了tcp,udp,ssl等协议
+# aiohttp是给予asyncio实现的http框架
+
+from aiohttp import web
 
 
-def gen_new():
-    yield from "cd"
+async def index(request):
+    await asyncio.sleep(0.5)
+    return web.Response(body=b'<h1>Index</h1>')
 
 
-print(list(gen()))
-print(list(gen_new()))
+async def hello(request):
+    await asyncio.sleep(0.5)
+    text = '<h1>hello,%s!</h1>'
