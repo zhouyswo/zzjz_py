@@ -152,13 +152,33 @@ import asyncio
 # aiohttp是给予asyncio实现的http框架
 
 from aiohttp import web
+#
+#
+# async def index(request):
+#     await asyncio.sleep(0.5)
+#     return web.Response(body=b'<h1>Index</h1>')
+#
+#
+# async def hello(request):
+#     await asyncio.sleep(0.5)
+#     text = '<h1>hello,%s!</h1>'
 
 
-async def index(request):
-    await asyncio.sleep(0.5)
-    return web.Response(body=b'<h1>Index</h1>')
+# concurrent.futures
+# 类似其他语言的线程池，利用multiprocessiong实现真正的并行计算
+# 核心原理：以子进程的形式，并行运行多个python解释器，从而令python程序可以利用多核CPU来提升速度，
+# 由于子进程与主解释器相分离，所以他们的全局解释器锁也是相互独立的，每个子进程都能完整的使用一个CPU内核。
+
+# concurrent.futures.Executor
+# -ThreadPoolExecutor
+# -ProcessPoolExecutor
+# 执行的时候需要自动选择
+# submit(fn,args,kwargs)
+# fn：异步执行的函数
+# args,kwargs参数
 
 
-async def hello(request):
-    await asyncio.sleep(0.5)
-    text = '<h1>hello,%s!</h1>'
+# current中的map函数
+# map(fn，iterables，timeout=NONE)
+# fn：可执行函数，异步执行
+# timeout：超时时间
